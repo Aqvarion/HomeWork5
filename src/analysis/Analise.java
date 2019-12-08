@@ -2,7 +2,7 @@ package analysis;
 
 import java.util.*;
 
-public class Analisys {
+public class Analise {
     public static void main(String[] args) {
         int size = 10000;
 
@@ -36,20 +36,18 @@ public class Analisys {
 
         long startTime;
         long estimatedTime;
-        int number = 7;
-        int number1 = 9;
 
         //ArrayList
         System.out.println("ArrayList");
         System.out.println(arrayList);
 
         startTime=System.nanoTime();
-        arrayList.add(number);
+        arrayList.add(7);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("\nTime for add: " + estimatedTime);
 
         startTime=System.nanoTime();
-        arrayList.add(size/2,number1);
+        arrayList.add(size/2,9);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("Time for insert: " + estimatedTime);
 
@@ -63,12 +61,12 @@ public class Analisys {
         System.out.println(linkedList);
 
         startTime=System.nanoTime();
-        linkedList.add(number);
+        linkedList.add(7);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("\nTime for add: " + estimatedTime);
 
         startTime=System.nanoTime();
-        linkedList.add(size/2,number1);
+        linkedList.add(size/2,9);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("Time for insert: " + estimatedTime);
 
@@ -81,7 +79,7 @@ public class Analisys {
         System.out.println("HashSet");
         System.out.println(hashSet);
         startTime=System.nanoTime();
-        hashSet.add(number);
+        hashSet.add(7);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("\nTime for add: " + estimatedTime);
 
@@ -95,7 +93,7 @@ public class Analisys {
         System.out.println(linkedHashSet);
 
         startTime=System.nanoTime();
-        linkedHashSet.add(number);
+        linkedHashSet.add(7);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("\nTime for add: " + estimatedTime);
 
@@ -108,22 +106,65 @@ public class Analisys {
         System.out.println("TreeSet");
         System.out.println(treeSet);
 
+        int temp;
+        do {
+            temp =r.nextInt(size*10);
+        } while (hashMap.containsValue(temp)==false);
         startTime=System.nanoTime();
-        treeSet.add(number);
+        treeSet.add(temp);
         estimatedTime=System.nanoTime()-startTime;
-        System.out.println("\nTime for add: " + estimatedTime);
+        System.out.println("\nTime for add: " + estimatedTime+ treeSet.size());
 
         startTime=System.nanoTime();
         treeSet.remove(size/2);
         estimatedTime=System.nanoTime()-startTime;
         System.out.println("Time for remove " + estimatedTime+"\n");
 
-
+        //HashMap
+        System.out.println("HashMap");
         System.out.println(hashMap);
+
+
+        startTime=System.nanoTime();
+        hashMap.put(temp,7);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("\nTime for add: " + estimatedTime);
+
+
+        startTime=System.nanoTime();
+        hashMap.remove(size/2);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("Time for remove " + estimatedTime+"\n");
+
+        //LinkedHashMap
+        System.out.println("LinkedHashMap");
         System.out.println(linkedHashMap);
+
+        startTime=System.nanoTime();
+        linkedHashMap.put(temp,7);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("\nTime for add: " + estimatedTime);
+
+
+        startTime=System.nanoTime();
+        linkedHashMap.remove(size/2);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("Time for remove " + estimatedTime+"\n");
+
+        //TreeMap
+        System.out.println("TreeMap");
         System.out.println(treeMap);
 
+        startTime=System.nanoTime();
+        treeMap.put(temp,7);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("\nTime for add: " + estimatedTime);
 
+
+        startTime=System.nanoTime();
+        treeMap.remove(size/2);
+        estimatedTime=System.nanoTime()-startTime;
+        System.out.println("Time for remove " + estimatedTime+"\n");
 
 
     }
